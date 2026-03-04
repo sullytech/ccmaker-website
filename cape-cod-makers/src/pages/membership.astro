@@ -1,0 +1,154 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import HeroSection from '../components/HeroSection.astro';
+import MembershipTierCard from '../components/MembershipTierCard.astro';
+
+// TODO: Replace all prices, descriptions, and benefits with actual membership data from organizers
+const tiers = [
+  {
+    name: 'Associate',
+    price: '$25',
+    period: '/month',
+    description: 'Access to community events and discounted workshops.',
+    benefits: [
+      'Attend open houses and public events',
+      'Discounted rates on workshops',
+      'Community newsletter',
+      'Vote in general meetings',
+    ],
+    highlighted: false,
+    ctaHref: '/contact',
+  },
+  {
+    name: 'Full Member',
+    price: '$75',
+    period: '/month',
+    description: 'Full access to the shop, tools, and all member benefits.',
+    benefits: [
+      'All Associate benefits',
+      '24/7 key-fob shop access',
+      'Use of all tools and equipment',
+      'Member storage space',
+      'Use of consumables (within reason)',
+      'Priority event registration',
+    ],
+    highlighted: true,
+    ctaHref: '/contact',
+  },
+  {
+    name: 'Student',
+    price: '$35',
+    period: '/month',
+    description: 'Discounted full membership for currently enrolled students.',
+    benefits: [
+      'All Full Member benefits',
+      'Valid student ID required',
+      'Renewable each semester',
+    ],
+    highlighted: false,
+    ctaHref: '/contact',
+  },
+];
+---
+
+<BaseLayout
+  title="Membership"
+  description="Join Cape Cod Makers and get access to our community makerspace, tools, workshops, and events in Harwich, MA."
+>
+  <HeroSection
+    heading="Become a Member"
+    subtext="Join a community of makers, artists, and builders on Cape Cod."
+  />
+
+  <!-- Pricing -->
+  <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+    <div class="text-center mb-12">
+      <h2 class="text-3xl font-bold mb-4">Membership Plans</h2>
+      <!-- TODO: Verify all pricing and tiers with Cape Cod Makers organizers before launch -->
+      <p class="text-gray-600 max-w-xl mx-auto">
+        All memberships are month-to-month with no long-term commitment required.
+        Cancel any time with 30 days notice.
+      </p>
+    </div>
+    <div class="grid gap-8 md:grid-cols-3 items-center">
+      {tiers.map(tier => (
+        <MembershipTierCard
+          name={tier.name}
+          price={tier.price}
+          period={tier.period}
+          description={tier.description}
+          benefits={tier.benefits}
+          highlighted={tier.highlighted}
+          ctaHref={tier.ctaHref}
+        />
+      ))}
+    </div>
+    <p class="text-center text-gray-500 mt-8 text-sm">
+      Questions about membership?{' '}
+      <a href="/contact" class="text-ccm-blue hover:underline">Contact us</a> — we're happy to help.
+    </p>
+  </section>
+
+  <!-- How it works -->
+  <section class="bg-gray-50 py-16">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6">
+      <h2 class="text-3xl font-bold text-center mb-10">How to Join</h2>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div class="text-center">
+          <div class="w-12 h-12 bg-ccm-blue text-white rounded-full flex items-center justify-center text-xl font-bold mx-auto mb-4">1</div>
+          <h3 class="text-lg font-bold mb-2">Visit an Open House</h3>
+          <p class="text-gray-600 text-sm">Come meet us, tour the space, and ask questions.</p>
+        </div>
+        <div class="text-center">
+          <div class="w-12 h-12 bg-ccm-blue text-white rounded-full flex items-center justify-center text-xl font-bold mx-auto mb-4">2</div>
+          <h3 class="text-lg font-bold mb-2">Complete Your Application</h3>
+          <!-- TODO: Add actual signup process details -->
+          <p class="text-gray-600 text-sm">Fill out a membership form and complete our safety orientation.</p>
+        </div>
+        <div class="text-center">
+          <div class="w-12 h-12 bg-ccm-blue text-white rounded-full flex items-center justify-center text-xl font-bold mx-auto mb-4">3</div>
+          <h3 class="text-lg font-bold mb-2">Start Making</h3>
+          <p class="text-gray-600 text-sm">Get your key fob and start using the space right away.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="max-w-4xl mx-auto px-4 sm:px-6 py-16">
+    <h2 class="text-3xl font-bold mb-8">Frequently Asked Questions</h2>
+    <!-- TODO: Replace with actual FAQs from organizers -->
+    <div class="space-y-6">
+      <details class="group border border-gray-200 rounded-lg">
+        <summary class="p-5 font-semibold cursor-pointer list-none flex items-center justify-between hover:bg-gray-50">
+          Do I need prior experience to join?
+          <span class="text-ccm-blue group-open:rotate-180 transition-transform">▼</span>
+        </summary>
+        <div class="px-5 pb-5 text-gray-600">
+          No experience is required! We welcome complete beginners and offer orientation
+          sessions for major equipment.
+        </div>
+      </details>
+      <details class="group border border-gray-200 rounded-lg">
+        <summary class="p-5 font-semibold cursor-pointer list-none flex items-center justify-between hover:bg-gray-50">
+          Can I try before committing?
+          <span class="text-ccm-blue group-open:rotate-180 transition-transform">▼</span>
+        </summary>
+        <div class="px-5 pb-5 text-gray-600">
+          Yes! Come to one of our open houses to tour the space and meet our members
+          before signing up.
+        </div>
+      </details>
+      <details class="group border border-gray-200 rounded-lg">
+        <summary class="p-5 font-semibold cursor-pointer list-none flex items-center justify-between hover:bg-gray-50">
+          What tools and equipment are available?
+          <span class="text-ccm-blue group-open:rotate-180 transition-transform">▼</span>
+        </summary>
+        <div class="px-5 pb-5 text-gray-600">
+          We have woodworking, metalworking, electronics, 3D printing, and more.
+          See our <a href="/facilities" class="text-ccm-blue hover:underline">Facilities page</a> for the full list.
+        </div>
+      </details>
+    </div>
+  </section>
+</BaseLayout>

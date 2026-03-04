@@ -1,0 +1,65 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import DonateSection from '../components/DonateSection.astro';
+---
+
+<BaseLayout
+  title="Donate"
+  description="Support Cape Cod Makers with a donation to help maintain our community makerspace in Harwich, MA."
+>
+  <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+    <h1 class="text-4xl font-bold mb-6">Support Cape Cod Makers</h1>
+
+    <!-- TODO: Replace with actual donation messaging from organizers -->
+    <div class="prose prose-lg max-w-none mb-12">
+      <p>
+        Cape Cod Makers is a community-supported makerspace. Your donations help us:
+      </p>
+      <ul>
+        <li>Maintain and repair our tools and equipment</li>
+        <li>Purchase new equipment to expand our offerings</li>
+        <li>Keep membership rates affordable for everyone</li>
+        <li>Host free and low-cost community workshops</li>
+        <li>Pay for our facility costs (rent, utilities, insurance)</li>
+      </ul>
+      <p>
+        Every dollar contributed directly supports our mission to provide access to
+        tools and maker education for our Cape Cod community.
+      </p>
+    </div>
+
+    <DonateSection />
+
+    <!-- Other ways to help -->
+    <section class="mt-16">
+      <h2 class="text-2xl font-bold mb-6">Other Ways to Support Us</h2>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div class="bg-gray-50 rounded-xl p-6">
+          <div class="text-2xl mb-3">🔧</div>
+          <h3 class="font-bold mb-2">Donate Equipment</h3>
+          <!-- TODO: Update with actual tool donation policy -->
+          <p class="text-gray-600 text-sm">
+            Have tools or equipment you no longer need? We may be able to accept donations.
+            <a href="/contact" class="text-ccm-blue hover:underline">Contact us</a> to find out.
+          </p>
+        </div>
+        <div class="bg-gray-50 rounded-xl p-6">
+          <div class="text-2xl mb-3">🤝</div>
+          <h3 class="font-bold mb-2">Volunteer</h3>
+          <p class="text-gray-600 text-sm">
+            Help with events, maintenance, or teach a workshop. Your time and expertise
+            are invaluable to our community.
+          </p>
+        </div>
+        <div class="bg-gray-50 rounded-xl p-6">
+          <div class="text-2xl mb-3">📢</div>
+          <h3 class="font-bold mb-2">Spread the Word</h3>
+          <p class="text-gray-600 text-sm">
+            Tell your friends and neighbors about Cape Cod Makers. Word of mouth is
+            our best marketing.
+          </p>
+        </div>
+      </div>
+    </section>
+  </div>
+</BaseLayout>

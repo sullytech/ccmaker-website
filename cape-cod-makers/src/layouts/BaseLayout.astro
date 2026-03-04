@@ -1,0 +1,45 @@
+---
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import SeoHead from '../components/SeoHead.astro';
+import '../styles/global.css';
+
+interface Props {
+  title: string;
+  description?: string;
+  image?: string;
+  canonicalUrl?: string;
+}
+
+const {
+  title,
+  description = 'Cape Cod Makers is a community makerspace in Harwich, MA offering tools, workshops, and a collaborative creative environment.',
+  image,
+  canonicalUrl,
+} = Astro.props;
+
+const fullTitle = title === 'Home'
+  ? 'Cape Cod Makers — Community Makerspace in Harwich, MA'
+  : `${title} | Cape Cod Makers`;
+---
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <SeoHead
+    title={fullTitle}
+    description={description}
+    image={image}
+    canonicalUrl={canonicalUrl}
+  />
+</head>
+<body class="min-h-screen flex flex-col bg-white text-gray-900 font-sans">
+  <Header />
+  <main class="flex-1">
+    <slot />
+  </main>
+  <Footer />
+</body>
+</html>

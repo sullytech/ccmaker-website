@@ -1,0 +1,102 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import HeroSection from '../components/HeroSection.astro';
+import EventList from '../components/EventList.astro';
+import { getCollection } from 'astro:content';
+
+const allEvents = await getCollection('events', ({ data }) => !data.isCancelled);
+const upcomingEvents = allEvents
+  .filter(e => e.data.date >= new Date())
+  .sort((a, b) => a.data.date.getTime() - b.data.date.getTime())
+  .slice(0, 3);
+---
+
+<BaseLayout
+  title="Home"
+  description="Cape Cod Makers is a community makerspace in Harwich, MA offering tools, workshops, and a collaborative creative environment for all skill levels."
+>
+  <HeroSection
+    heading="Make Something Amazing"
+    subtext="Cape Cod Makers is a community workshop at the tip of Cape Cod — open to all skill levels."
+    ctaText="Explore Membership"
+    ctaHref="/membership"
+    secondaryCtaText="Upcoming Events"
+    secondaryCtaHref="/events"
+  />
+
+  <!-- Mission -->
+  <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+    <div class="max-w-3xl mx-auto text-center">
+      <h2 class="text-3xl font-bold mb-6">Our Mission</h2>
+      <!-- TODO: Replace with actual mission statement from Cape Cod Makers -->
+      <p class="text-xl text-gray-600 leading-relaxed">
+        We provide access to tools, equipment, and a supportive community for makers,
+        artists, engineers, and curious people of all backgrounds on Cape Cod.
+      </p>
+    </div>
+  </section>
+
+  <!-- Why join / feature highlights -->
+  <section class="bg-gray-50 py-16">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 class="text-3xl font-bold text-center mb-12">Why Join Cape Cod Makers?</h2>
+      <!-- TODO: Update with actual benefits from organizers -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div class="text-center p-6">
+          <div class="text-4xl mb-4">🔧</div>
+          <h3 class="text-xl font-bold mb-2">Professional Tools</h3>
+          <p class="text-gray-600">Access woodworking, metalworking, electronics, 3D printing, and more.</p>
+        </div>
+        <div class="text-center p-6">
+          <div class="text-4xl mb-4">👥</div>
+          <h3 class="text-xl font-bold mb-2">Community</h3>
+          <p class="text-gray-600">Collaborate with fellow makers, learn new skills, and share expertise.</p>
+        </div>
+        <div class="text-center p-6">
+          <div class="text-4xl mb-4">📚</div>
+          <h3 class="text-xl font-bold mb-2">Workshops & Classes</h3>
+          <p class="text-gray-600">Attend hands-on workshops and skill-building classes throughout the year.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Upcoming events preview -->
+  {upcomingEvents.length > 0 && (
+    <section class="py-16">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex items-center justify-between mb-8">
+          <h2 class="text-3xl font-bold">Upcoming Events</h2>
+          <a href="/events" class="text-ccm-blue font-semibold hover:underline text-sm">
+            View all →
+          </a>
+        </div>
+        <EventList events={upcomingEvents} />
+      </div>
+    </section>
+  )}
+
+  <!-- CTA banner -->
+  <section class="bg-ccm-blue text-white py-16">
+    <div class="max-w-3xl mx-auto px-4 text-center">
+      <h2 class="text-3xl font-bold mb-4">Ready to Get Started?</h2>
+      <p class="text-blue-100 text-lg mb-8">
+        Come to an open house, tour the space, and meet our community. No experience required.
+      </p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <a
+          href="/membership"
+          class="bg-white text-ccm-blue font-semibold px-8 py-3 rounded-lg hover:bg-gray-100 transition-colors"
+        >
+          View Membership Options
+        </a>
+        <a
+          href="/contact"
+          class="border-2 border-white text-white font-semibold px-8 py-3 rounded-lg hover:bg-white hover:text-ccm-blue transition-colors"
+        >
+          Contact Us
+        </a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

@@ -1,0 +1,106 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import HeroSection from '../components/HeroSection.astro';
+---
+
+<BaseLayout
+  title="About"
+  description="Learn about Cape Cod Makers — our mission, history, and community of makers in Harwich, MA."
+>
+  <HeroSection
+    heading="About Cape Cod Makers"
+    subtext="A community makerspace serving Cape Cod and the Islands."
+  />
+
+  <!-- Mission -->
+  <section class="max-w-4xl mx-auto px-4 sm:px-6 py-16">
+    <h2 class="text-3xl font-bold mb-6">Our Mission</h2>
+    <!-- TODO: Replace with actual mission statement -->
+    <p class="text-lg text-gray-700 leading-relaxed mb-6">
+      Cape Cod Makers provides a shared workspace where community members can access
+      professional tools, learn new skills, and collaborate on projects. We believe
+      that making things is fundamental to human creativity and innovation.
+    </p>
+    <p class="text-lg text-gray-700 leading-relaxed">
+      We are committed to keeping our space affordable and welcoming to makers of
+      all skill levels, from complete beginners to seasoned professionals.
+    </p>
+  </section>
+
+  <!-- History -->
+  <section class="bg-gray-50 py-16">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6">
+      <h2 class="text-3xl font-bold mb-6">Our Story</h2>
+      <!-- TODO: Replace with actual history/founding story from organizers -->
+      <p class="text-lg text-gray-700 leading-relaxed mb-6">
+        Cape Cod Makers was founded by a group of local enthusiasts who wanted to
+        bring the makerspace movement to Cape Cod. What started as a small gathering
+        of tinkerers has grown into a thriving community with a dedicated workshop space.
+      </p>
+      <p class="text-lg text-gray-700 leading-relaxed">
+        Today, our members include woodworkers, electronics hobbyists, artists,
+        engineers, students, and curious people from all walks of life.
+      </p>
+    </div>
+  </section>
+
+  <!-- Location / Map -->
+  <section class="max-w-4xl mx-auto px-4 sm:px-6 py-16">
+    <h2 class="text-3xl font-bold mb-6">Find Us</h2>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-start">
+      <div>
+        <address class="not-italic text-lg text-gray-700 mb-4">
+          <strong class="block text-gray-900">Cape Cod Makers</strong>
+          204 Sisson Road<br />
+          Harwich, MA 02645
+        </address>
+        <!-- TODO: Add actual contact email and phone -->
+        <p class="text-gray-600">
+          <a href="mailto:info@capecodmakers.org" class="text-ccm-blue hover:underline">
+            info@capecodmakers.org
+          </a>
+        </p>
+        <div class="mt-6">
+          <a
+            href="https://maps.google.com/?q=204+Sisson+Road+Harwich+MA+02645"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="inline-block bg-ccm-blue text-white px-6 py-2.5 rounded-lg font-semibold hover:bg-blue-700 transition-colors text-sm"
+          >
+            Get Directions
+          </a>
+        </div>
+      </div>
+      <!-- Google Maps embed -->
+      <div class="rounded-xl overflow-hidden border border-gray-200 aspect-video">
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2983.5!2d-70.0758!3d41.6793!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89fb1b8e68b5c4f3%3A0x1234!2s204+Sisson+Rd%2C+Harwich%2C+MA+02645!5e0!3m2!1sen!2sus!4v1234567890"
+          width="100%"
+          height="100%"
+          style="border:0;"
+          allowfullscreen=""
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+          title="Cape Cod Makers location map"
+        ></iframe>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="bg-ccm-blue/5 border-y border-ccm-blue/20 py-12">
+    <div class="max-w-2xl mx-auto px-4 text-center">
+      <h2 class="text-2xl font-bold mb-4">Come See for Yourself</h2>
+      <p class="text-gray-700 mb-6">
+        The best way to learn about us is to visit. Come to an open house and see
+        our space, meet our members, and ask your questions.
+      </p>
+      <a
+        href="/events"
+        class="inline-block bg-ccm-blue text-white font-semibold px-8 py-3 rounded-lg hover:bg-blue-700 transition-colors"
+      >
+        See Upcoming Events
+      </a>
+    </div>
+  </section>
+</BaseLayout>

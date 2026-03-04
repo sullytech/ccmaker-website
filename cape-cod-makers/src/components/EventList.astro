@@ -1,0 +1,18 @@
+---
+import type { CollectionEntry } from 'astro:content';
+import EventCard from './EventCard.astro';
+
+interface Props {
+  events: CollectionEntry<'events'>[];
+}
+
+const { events } = Astro.props;
+---
+
+{events.length > 0 ? (
+  <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+    {events.map(event => <EventCard event={event} />)}
+  </div>
+) : (
+  <p class="text-gray-500 text-center py-8">No events to display.</p>
+)}

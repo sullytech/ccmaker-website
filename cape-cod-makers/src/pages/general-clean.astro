@@ -1,0 +1,72 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { getCollection } from 'astro:content';
+
+// Find next upcoming General Clean event
+const allEvents = await getCollection('events', ({ data }) =>
+  data.tags.includes('general-clean') && !data.isCancelled && data.date >= new Date()
+);
+const nextClean = allEvents.sort((a, b) => a.data.date.getTime() - b.data.date.getTime())[0];
+---
+
+<BaseLayout
+  title="General Clean"
+  description="Learn about Cape Cod Makers' General Clean events — community shop cleanup days that keep our makerspace safe and organized."
+>
+  <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+    <h1 class="text-4xl font-bold mb-4">General Clean</h1>
+    <p class="text-xl text-gray-600 mb-10">
+      Regular shop cleanup events that keep Cape Cod Makers safe and welcoming for everyone.
+    </p>
+
+    {nextClean && (
+      <div class="bg-ccm-blue/5 border border-ccm-blue/20 rounded-xl p-6 mb-10">
+        <p class="text-sm font-semibold text-ccm-blue uppercase tracking-wide mb-1">Next General Clean</p>
+        <p class="text-xl font-bold">
+          {nextClean.data.date.toLocaleDateString('en-US', {
+            weekday: 'long', year: 'numeric', month: 'long', day: 'numeric',
+            timeZone: 'America/New_York'
+          })}
+        </p>
+        <a href={`/events/${nextClean.slug}`} class="text-ccm-blue hover:underline text-sm mt-2 inline-block">
+          View event details →
+        </a>
+      </div>
+    )}
+
+    <!-- TODO: Replace with actual General Clean description from organizers -->
+    <div class="prose prose-lg max-w-none">
+      <h2>What Is a General Clean?</h2>
+      <p>
+        A General Clean is a scheduled day when all available members come together to
+        clean, organize, and maintain the Cape Cod Makers facility. These events are
+        essential to keeping our shared space safe, functional, and pleasant for everyone.
+      </p>
+
+      <h2>Why Participate?</h2>
+      <p>
+        As a shared community space, the makerspace only works well when everyone
+        contributes to its upkeep. Participating in General Cleans is part of being
+        a responsible member of our community.
+      </p>
+
+      <h2>What Happens?</h2>
+      <ul>
+        <li>Organizing tools and returning them to designated storage locations</li>
+        <li>Cleaning all work surfaces and floors</li>
+        <li>Disposing of scrap material and trash</li>
+        <li>Identifying tools that need maintenance or repair</li>
+        <li>Light facility maintenance tasks</li>
+      </ul>
+
+      <p>
+        Lunch is typically provided as a thank-you to all participants. Come in work clothes
+        you don't mind getting dirty!
+      </p>
+    </div>
+
+    <div class="mt-10">
+      <a href="/events" class="text-ccm-blue hover:underline">← See All Events</a>
+    </div>
+  </div>
+</BaseLayout>

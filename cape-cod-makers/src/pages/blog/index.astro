@@ -1,0 +1,42 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import BlogPostCard from '../../components/BlogPostCard.astro';
+import { getCollection } from 'astro:content';
+
+const allPosts = await getCollection('blog', ({ data }) => !data.draft);
+const posts = allPosts.sort((a, b) => b.data.pubDate.getTime() - a.data.pubDate.getTime());
+---
+
+<BaseLayout
+  title="Blog"
+  description="News, updates, and project stories from Cape Cod Makers."
+>
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+    <div class="flex items-center justify-between mb-8">
+      <div>
+        <h1 class="text-4xl font-bold mb-2">Blog</h1>
+        <p class="text-gray-600">News and updates from Cape Cod Makers.</p>
+      </div>
+      <a
+        href="/rss.xml"
+        class="text-ccm-blue text-sm flex items-center gap-1 hover:underline"
+        title="RSS Feed"
+      >
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M6.18 15.64a2.18 2.18 0 0 1 2.18 2.18C8.36 19.01 7.38 20 6.18 20C4.98 20 4 19.01 4 17.82a2.18 2.18 0 0 1 2.18-2.18M4 4.44A15.56 15.56 0 0 1 19.56 20h-2.83A12.73 12.73 0 0 0 4 7.27V4.44m0 5.66a9.9 9.9 0 0 1 9.9 9.9h-2.83A7.07 7.07 0 0 0 4 12.93V10.1z"/>
+        </svg>
+        RSS
+      </a>
+    </div>
+
+    {posts.length > 0 ? (
+      <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+        {posts.map(post => <BlogPostCard post={post} />)}
+      </div>
+    ) : (
+      <div class="bg-gray-50 rounded-xl p-8 text-center">
+        <p class="text-gray-500">No blog posts yet. Check back soon!</p>
+      </div>
+    )}
+  </div>
+</BaseLayout>

@@ -1,0 +1,109 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import HeroSection from '../components/HeroSection.astro';
+import FacilityCard from '../components/FacilityCard.astro';
+
+// TODO: Replace with actual equipment list from Cape Cod Makers organizers
+const facilityAreas = [
+  {
+    name: 'Woodworking',
+    icon: '🪵',
+    description: 'A fully equipped woodworking area for furniture, cabinetry, and artistic projects.',
+    items: ['Table saw', 'Band saw', 'Jointer / Planer', 'Router table', 'Drill press', 'Sanders', 'Hand tools'],
+  },
+  {
+    name: 'Electronics & Prototyping',
+    icon: '⚡',
+    description: 'Workstations for electronics design, repair, and prototyping.',
+    items: ['Soldering stations', 'Oscilloscopes', 'Multimeters', 'Power supplies', 'Arduino / Raspberry Pi components', 'PCB fabrication tools'],
+  },
+  {
+    name: '3D Printing & Fabrication',
+    icon: '🖨️',
+    description: 'Digital fabrication tools for turning designs into physical objects.',
+    items: ['FDM 3D printers', 'Laser cutter / engraver', 'Vinyl cutter', 'Design software workstations'],
+  },
+  {
+    name: 'Metalworking',
+    icon: '🔩',
+    description: 'Equipment for metal cutting, shaping, and joining.',
+    items: ['Angle grinders', 'MIG welder', 'Metal chop saw', 'Bench vises', 'Hand tools'],
+  },
+  {
+    name: 'Finishing & Painting',
+    icon: '🎨',
+    description: 'Dedicated area for finishing, painting, and surface treatment.',
+    items: ['Spray area', 'Finishing tools', 'Safety equipment'],
+  },
+  {
+    name: 'Community Space',
+    icon: '👥',
+    description: 'Shared work tables, lounge area, and space for group projects and meetings.',
+    items: ['Large work tables', 'Whiteboard', 'Projector', 'Kitchen / break area'],
+  },
+];
+---
+
+<BaseLayout
+  title="Facilities"
+  description="Explore the tools, equipment, and workspace areas available at Cape Cod Makers in Harwich, MA."
+>
+  <HeroSection
+    heading="Our Facilities"
+    subtext="Professional tools and dedicated workspaces for every type of maker."
+    ctaText="Become a Member"
+    ctaHref="/membership"
+  />
+
+  <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+    <div class="text-center mb-12">
+      <h2 class="text-3xl font-bold mb-4">What We Have</h2>
+      <!-- TODO: Update this description with actual shop overview from organizers -->
+      <p class="text-gray-600 max-w-2xl mx-auto">
+        Our {/* TODO: add square footage */} square foot facility contains dedicated
+        areas for woodworking, electronics, digital fabrication, and more. All equipment
+        is available to Full Members 24/7.
+      </p>
+    </div>
+
+    <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+      {facilityAreas.map(area => (
+        <FacilityCard
+          name={area.name}
+          icon={area.icon}
+          description={area.description}
+          items={area.items}
+        />
+      ))}
+    </div>
+  </section>
+
+  <!-- Safety note -->
+  <section class="bg-amber-50 border-y border-amber-200 py-12">
+    <div class="max-w-3xl mx-auto px-4 text-center">
+      <h2 class="text-xl font-bold mb-3 text-amber-900">Safety First</h2>
+      <!-- TODO: Update with actual safety policy from organizers -->
+      <p class="text-amber-800">
+        All new members complete a safety orientation before using major equipment.
+        Some tools require additional training. Our experienced members and staff
+        are always available to help.
+      </p>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="max-w-2xl mx-auto px-4 py-16 text-center">
+    <h2 class="text-2xl font-bold mb-4">Want to See It in Person?</h2>
+    <p class="text-gray-600 mb-6">
+      Come to an open house and get a guided tour of all our equipment.
+    </p>
+    <div class="flex flex-col sm:flex-row gap-4 justify-center">
+      <a href="/events" class="bg-ccm-blue text-white font-semibold px-8 py-3 rounded-lg hover:bg-blue-700 transition-colors">
+        Find an Open House
+      </a>
+      <a href="/membership" class="border-2 border-ccm-blue text-ccm-blue font-semibold px-8 py-3 rounded-lg hover:bg-ccm-blue hover:text-white transition-colors">
+        View Membership
+      </a>
+    </div>
+  </section>
+</BaseLayout>

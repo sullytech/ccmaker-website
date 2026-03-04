@@ -1,0 +1,54 @@
+---
+const currentYear = new Date().getFullYear();
+---
+
+<footer class="bg-ccm-dark text-gray-300 mt-auto">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 grid grid-cols-1 md:grid-cols-3 gap-8">
+    <div>
+      <h3 class="text-white font-semibold mb-3">Cape Cod Makers</h3>
+      <address class="not-italic text-sm leading-relaxed">
+        204 Sisson Road<br />
+        Harwich, MA 02645
+      </address>
+      <!-- TODO: Add actual contact email once confirmed -->
+      <a href="mailto:info@capecodmakers.org" class="block mt-2 text-sm hover:text-white">
+        info@capecodmakers.org
+      </a>
+    </div>
+    <div>
+      <h3 class="text-white font-semibold mb-3">Quick Links</h3>
+      <ul class="text-sm space-y-2">
+        <li><a href="/about" class="hover:text-white transition-colors">About Us</a></li>
+        <li><a href="/membership" class="hover:text-white transition-colors">Membership</a></li>
+        <li><a href="/events" class="hover:text-white transition-colors">Events</a></li>
+        <li><a href="/facilities" class="hover:text-white transition-colors">Facilities</a></li>
+        <li><a href="/donate" class="hover:text-white transition-colors">Donate</a></li>
+        <li><a href="/contact" class="hover:text-white transition-colors">Contact</a></li>
+      </ul>
+    </div>
+    <div>
+      <h3 class="text-white font-semibold mb-3">Connect</h3>
+      <!-- TODO: Replace # with actual social media URLs -->
+      <ul class="text-sm space-y-2">
+        <li>
+          <a href="#" class="hover:text-white transition-colors" rel="noopener noreferrer" target="_blank">
+            Facebook
+          </a>
+        </li>
+        <li>
+          <a href="#" class="hover:text-white transition-colors" rel="noopener noreferrer" target="_blank">
+            Instagram
+          </a>
+        </li>
+        <li>
+          <a href="/blog/rss.xml" class="hover:text-white transition-colors">
+            RSS Feed
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <div class="border-t border-gray-700 py-4 text-center text-xs text-gray-500">
+    &copy; {currentYear} Cape Cod Makers. All rights reserved.
+  </div>
+</footer>

@@ -1,0 +1,65 @@
+---
+interface Props {
+  name: string;
+  price: string;
+  period?: string;
+  description: string;
+  benefits: string[];
+  highlighted?: boolean;
+  ctaText?: string;
+  ctaHref: string;
+}
+
+const {
+  name,
+  price,
+  period = '/month',
+  description,
+  benefits,
+  highlighted = false,
+  ctaText = 'Get Started',
+  ctaHref,
+} = Astro.props;
+---
+
+<div
+  class:list={[
+    'rounded-xl border-2 p-8 flex flex-col relative',
+    highlighted
+      ? 'border-ccm-blue shadow-lg scale-[1.02]'
+      : 'border-gray-200 hover:border-gray-300'
+  ]}
+>
+  {highlighted && (
+    <span class="absolute -top-3.5 left-1/2 -translate-x-1/2 bg-ccm-blue text-white text-xs font-bold uppercase px-4 py-1 rounded-full tracking-wide">
+      Most Popular
+    </span>
+  )}
+  <h3 class="text-2xl font-bold mb-2">{name}</h3>
+  <div class="mb-4">
+    <span class="text-4xl font-bold">{price}</span>
+    <span class="text-gray-500 text-sm">{period}</span>
+  </div>
+  <p class="text-gray-600 mb-6">{description}</p>
+  <ul class="space-y-3 mb-8 flex-1">
+    {benefits.map(benefit => (
+      <li class="flex items-start gap-2 text-sm">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-green-500 shrink-0 mt-0.5" viewBox="0 0 20 20" fill="currentColor">
+          <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+        </svg>
+        {benefit}
+      </li>
+    ))}
+  </ul>
+  <a
+    href={ctaHref}
+    class:list={[
+      'block text-center py-3 rounded-lg font-semibold transition-colors',
+      highlighted
+        ? 'bg-ccm-blue text-white hover:bg-blue-700'
+        : 'border-2 border-ccm-blue text-ccm-blue hover:bg-ccm-blue hover:text-white'
+    ]}
+  >
+    {ctaText}
+  </a>
+</div>
