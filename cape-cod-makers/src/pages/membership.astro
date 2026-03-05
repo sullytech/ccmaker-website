@@ -3,49 +3,33 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import HeroSection from '../components/HeroSection.astro';
 import MembershipTierCard from '../components/MembershipTierCard.astro';
 
-// TODO: Replace all prices, descriptions, and benefits with actual membership data from organizers
 const tiers = [
   {
-    name: 'Associate',
-    price: '$25',
-    period: '/month',
-    description: 'Access to community events and discounted workshops.',
+    name: 'Supporting Member',
+    price: '$12',
+    period: '/month  (or $120/year)',
+    description: 'Community access with space use during scheduled times.',
     benefits: [
-      'Attend open houses and public events',
-      'Discounted rates on workshops',
-      'Community newsletter',
-      'Vote in general meetings',
+      'Access to the LaunchPad MakerSpace during weekly Project Times or when accompanied by a Full Member',
+      'Full access to the Cape Cod Makers\' Slack group',
+      'Discounted Class & Event Fees',
+      'Early Access to Class & Event Registration',
     ],
     highlighted: false,
     ctaHref: '/contact',
   },
   {
     name: 'Full Member',
-    price: '$75',
+    price: '$60',
     period: '/month',
-    description: 'Full access to the shop, tools, and all member benefits.',
+    description: 'Unlimited access to the space, tools, and full member benefits.',
     benefits: [
-      'All Associate benefits',
-      '24/7 key-fob shop access',
-      'Use of all tools and equipment',
-      'Member storage space',
-      'Use of consumables (within reason)',
-      'Priority event registration',
+      'Full access to the LaunchPad MakerSpace and tools at any time',
+      'Full access to the Cape Cod Makers\' Slack group',
+      'Early Access to Class & Event Registration',
+      'Voting Privileges',
     ],
     highlighted: true,
-    ctaHref: '/contact',
-  },
-  {
-    name: 'Student',
-    price: '$35',
-    period: '/month',
-    description: 'Discounted full membership for currently enrolled students.',
-    benefits: [
-      'All Full Member benefits',
-      'Valid student ID required',
-      'Renewable each semester',
-    ],
-    highlighted: false,
     ctaHref: '/contact',
   },
 ];
@@ -64,13 +48,12 @@ const tiers = [
   <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
     <div class="text-center mb-12">
       <h2 class="text-3xl font-bold mb-4">Membership Plans</h2>
-      <!-- TODO: Verify all pricing and tiers with Cape Cod Makers organizers before launch -->
       <p class="text-gray-600 max-w-xl mx-auto">
         All memberships are month-to-month with no long-term commitment required.
         Cancel any time with 30 days notice.
       </p>
     </div>
-    <div class="grid gap-8 md:grid-cols-3 items-center">
+    <div class="grid gap-8 md:grid-cols-2 max-w-4xl mx-auto items-center">
       {tiers.map(tier => (
         <MembershipTierCard
           name={tier.name}
