@@ -8,7 +8,8 @@
       "Bash(where npm.cmd)",
       "Bash(python -c \"import sys,json; d=json.load\\(sys.stdin\\); print\\(d.get\\(''bin'',''''\\)\\)\")",
       "Bash(git commit:*)",
-      "Bash(git add .claude/)"
+      "Bash(git add .claude/)",
+      "Bash(git push)"
     ]
   }
 }
