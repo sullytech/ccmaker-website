@@ -1,0 +1,14 @@
+{
+  "permissions": {
+    "allow": [
+      "mcp__Claude_Preview__preview_start",
+      "Bash(npm --version)",
+      "Bash(node --version)",
+      "Bash(npm install)",
+      "Bash(where npm.cmd)",
+      "Bash(python -c \"import sys,json; d=json.load\\(sys.stdin\\); print\\(d.get\\(''bin'',''''\\)\\)\")",
+      "Bash(git commit:*)",
+      "Bash(git add .claude/)"
+    ]
+  }
+}
