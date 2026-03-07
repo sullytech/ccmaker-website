@@ -1,14 +1,10 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import HeroSection from '../components/HeroSection.astro';
-import EventList from '../components/EventList.astro';
-import { getCollection } from 'astro:content';
+import MeetupEventCard from '../components/MeetupEventCard.astro';
+import { getMeetupEvents } from '../utils/meetup';
 
-const allEvents = await getCollection('events', ({ data }) => !data.isCancelled);
-const upcomingEvents = allEvents
-  .filter(e => e.data.date >= new Date())
-  .sort((a, b) => a.data.date.getTime() - b.data.date.getTime())
-  .slice(0, 3);
+const upcomingEvents = (await getMeetupEvents()).slice(0, 3);
 ---
 
 <BaseLayout
@@ -71,7 +67,9 @@ const upcomingEvents = allEvents
             View all →
           </a>
         </div>
-        <EventList events={upcomingEvents} />
+        <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+          {upcomingEvents.map(event => <MeetupEventCard event={event} />)}
+        </div>
       </div>
     </section>
   )}
