@@ -4,37 +4,42 @@ import HeroSection from '../components/HeroSection.astro';
 import FacilityCard from '../components/FacilityCard.astro';
 
 import { siteBase as base } from '../utils/siteBase';
-// TODO: Replace with actual equipment list from Cape Cod Makers organizers
 const facilityAreas = [
   {
-    name: 'Electronics & Prototyping',
-    icon: '⚡',
-    description: 'Workstations for electronics design, repair, and prototyping.',
-    items: ['Soldering stations', 'Oscilloscopes', 'Multimeters', 'Power supplies', 'Arduino / Raspberry Pi components', 'PCB fabrication tools'],
+    name: 'CNC & Laser Cutting',
+    icon: '✂️',
+    description: 'Precision cutting and engraving for wood, plastic, acrylic, and more.',
+    items: ['X-Carve CNC Engraver/Cutter', 'Glowforge Laser Cutter'],
   },
   {
-    name: '3D Printing & Fabrication',
+    name: '3D Printing',
     icon: '🖨️',
-    description: 'Digital fabrication tools for turning designs into physical objects.',
-    items: ['FDM 3D printers', 'Laser cutter / engraver', 'Vinyl cutter', 'Design software workstations'],
+    description: 'Turn your digital designs into physical objects with our FDM printers.',
+    items: ['Multiple 3D Printers'],
   },
   {
-    name: 'Metalworking',
-    icon: '🔩',
-    description: 'Equipment for metal cutting, shaping, and joining.',
-    items: ['Angle grinders', 'MIG welder', 'Metal chop saw', 'Bench vises', 'Hand tools'],
+    name: 'Electronics & Soldering',
+    icon: '⚡',
+    description: 'Professional electronics workbench for prototyping and assembly.',
+    items: ['Advanced Soldering Station', 'Reflow Soldering Oven'],
   },
   {
-    name: 'Finishing & Painting',
+    name: 'Vinyl & Cutting',
     icon: '🎨',
-    description: 'Dedicated area for finishing, painting, and surface treatment.',
-    items: ['Spray area', 'Finishing tools', 'Safety equipment'],
+    description: 'Create decals, stickers, heat transfers, and more.',
+    items: ['Cameo Pro Vinyl Cutter'],
   },
   {
-    name: 'Community Space',
-    icon: '👥',
-    description: 'Shared work tables, lounge area, and space for group projects and meetings.',
-    items: ['Large work tables', 'Whiteboard', 'Projector', 'Kitchen / break area'],
+    name: 'Robotics & Testing',
+    icon: '🤖',
+    description: 'Build and test your robots in our dedicated arena.',
+    items: ['Combat Robot Test Arena'],
+  },
+  {
+    name: 'Workspace & Connectivity',
+    icon: '💻',
+    description: 'Everything you need to design, collaborate, and create.',
+    items: ['Computer Workstations', 'WiFi Internet', 'Fellow Makers'],
   },
 ];
 ---
@@ -45,9 +50,9 @@ const facilityAreas = [
 >
   <HeroSection
     heading="Our Facilities"
-    subtext="Professional tools and dedicated workspaces for every type of maker."
+    subtext="Professional tools and shared workspace for every type of maker."
     ctaText="Become a Member"
-    ctaHref="/membership"
+    ctaHref={`${base}membership`}
   />
 
   <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
@@ -55,9 +60,8 @@ const facilityAreas = [
       <h2 class="text-3xl font-bold mb-4">What We Have</h2>
       <!-- TODO: Update this description with actual shop overview from organizers -->
       <p class="text-gray-600 max-w-2xl mx-auto">
-        Our {/* TODO: add square footage */} square foot facility contains dedicated
-        areas for woodworking, electronics, digital fabrication, and more. All equipment
-        is available to Full Members 24/7.
+        Our space in Harwich is a converted classroom packed with tools for digital
+        fabrication, electronics, robotics, and more. Full Members have unlimited access.
       </p>
     </div>
 
@@ -80,7 +84,7 @@ const facilityAreas = [
       <!-- TODO: Update with actual safety policy from organizers -->
       <p class="text-amber-800">
         All new members complete a safety orientation before using major equipment.
-        Some tools require additional training. Our experienced members and staff
+        Some tools require additional training. Our experienced members and volunteers
         are always available to help.
       </p>
     </div>
