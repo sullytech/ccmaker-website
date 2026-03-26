@@ -1,13 +1,14 @@
 ---
+import { siteBase as base } from '../utils/siteBase';
 const navLinks = [
-  { href: '/',           label: 'Home' },
-  { href: '/about',      label: 'About' },
-  { href: '/membership', label: 'Membership' },
-  { href: '/events',     label: 'Events' },
-  { href: '/facilities', label: 'Facilities' },
-  { href: '/blog',       label: 'Blog' },
-  { href: '/donate',     label: 'Donate' },
-  { href: '/contact',    label: 'Contact' },
+  { href: base,                    label: 'Home' },
+  { href: `${base}about`,          label: 'About' },
+  { href: `${base}membership`,     label: 'Membership' },
+  { href: `${base}events`,         label: 'Events' },
+  { href: `${base}facilities`,     label: 'Facilities' },
+  { href: `${base}blog`,           label: 'Blog' },
+  { href: `${base}donate`,         label: 'Donate' },
+  { href: `${base}contact`,        label: 'Contact' },
 ];
 
 const currentPath = Astro.url.pathname;
@@ -22,7 +23,7 @@ const currentPath = Astro.url.pathname;
           href={link.href}
           class:list={[
             'text-sm font-medium transition-colors hover:text-ccm-blue',
-            currentPath === link.href || (link.href !== '/' && currentPath.startsWith(link.href))
+            currentPath === link.href || (link.href !== base && currentPath.startsWith(link.href))
               ? 'text-ccm-blue'
               : 'text-gray-700'
           ]}
@@ -58,7 +59,7 @@ const currentPath = Astro.url.pathname;
           href={link.href}
           class:list={[
             'block text-base font-medium transition-colors hover:text-ccm-blue',
-            currentPath === link.href || (link.href !== '/' && currentPath.startsWith(link.href))
+            currentPath === link.href || (link.href !== base && currentPath.startsWith(link.href))
               ? 'text-ccm-blue'
               : 'text-gray-700'
           ]}

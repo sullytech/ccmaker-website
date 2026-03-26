@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import { siteBase as base } from '../utils/siteBase';
 ---
 
 <BaseLayout
@@ -36,7 +37,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 
     <div class="mt-10">
       <a
-        href="/contact"
+        href={`${base}contact`}
         class="inline-block bg-ccm-blue text-white font-semibold px-6 py-3 rounded-lg hover:bg-blue-700 transition-colors"
       >
         Contact Us About Tools

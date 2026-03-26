@@ -3,6 +3,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import HeroSection from '../components/HeroSection.astro';
 import MembershipTierCard from '../components/MembershipTierCard.astro';
 
+import { siteBase as base } from '../utils/siteBase';
 const tiers = [
   {
     name: 'Supporting Member',
@@ -16,7 +17,7 @@ const tiers = [
       'Early Access to Class & Event Registration',
     ],
     highlighted: false,
-    ctaHref: '/contact',
+    ctaHref: `${base}contact`,
   },
   {
     name: 'Full Member',
@@ -30,7 +31,7 @@ const tiers = [
       'Voting Privileges',
     ],
     highlighted: true,
-    ctaHref: '/contact',
+    ctaHref: `${base}contact`,
   },
 ];
 ---
@@ -68,7 +69,7 @@ const tiers = [
     </div>
     <p class="text-center text-gray-500 mt-8 text-sm">
       Questions about membership?{' '}
-      <a href="/contact" class="text-ccm-blue hover:underline">Contact us</a> — we're happy to help.
+      <a href={`${base}contact`} class="text-ccm-blue hover:underline">Contact us</a> — we're happy to help.
     </p>
   </section>
 
@@ -129,7 +130,7 @@ const tiers = [
         </summary>
         <div class="px-5 pb-5 text-gray-600">
           We have woodworking, metalworking, electronics, 3D printing, and more.
-          See our <a href="/facilities" class="text-ccm-blue hover:underline">Facilities page</a> for the full list.
+          See our <a href={`${base}facilities`} class="text-ccm-blue hover:underline">Facilities page</a> for the full list.
         </div>
       </details>
     </div>

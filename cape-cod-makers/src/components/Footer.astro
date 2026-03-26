@@ -1,4 +1,5 @@
 ---
+import { siteBase as base } from '../utils/siteBase';
 const currentYear = new Date().getFullYear();
 ---
 
@@ -18,12 +19,12 @@ const currentYear = new Date().getFullYear();
     <div>
       <h3 class="text-white font-semibold mb-3">Quick Links</h3>
       <ul class="text-sm space-y-2">
-        <li><a href="/about" class="hover:text-white transition-colors">About Us</a></li>
-        <li><a href="/membership" class="hover:text-white transition-colors">Membership</a></li>
-        <li><a href="/events" class="hover:text-white transition-colors">Events</a></li>
-        <li><a href="/facilities" class="hover:text-white transition-colors">Facilities</a></li>
-        <li><a href="/donate" class="hover:text-white transition-colors">Donate</a></li>
-        <li><a href="/contact" class="hover:text-white transition-colors">Contact</a></li>
+        <li><a href={`${base}about`} class="hover:text-white transition-colors">About Us</a></li>
+        <li><a href={`${base}membership`} class="hover:text-white transition-colors">Membership</a></li>
+        <li><a href={`${base}events`} class="hover:text-white transition-colors">Events</a></li>
+        <li><a href={`${base}facilities`} class="hover:text-white transition-colors">Facilities</a></li>
+        <li><a href={`${base}donate`} class="hover:text-white transition-colors">Donate</a></li>
+        <li><a href={`${base}contact`} class="hover:text-white transition-colors">Contact</a></li>
       </ul>
     </div>
     <div>
@@ -41,7 +42,7 @@ const currentYear = new Date().getFullYear();
           </a>
         </li>
         <li>
-          <a href="/blog/rss.xml" class="hover:text-white transition-colors">
+          <a href={`${base}blog/rss.xml`} class="hover:text-white transition-colors">
             RSS Feed
           </a>
         </li>

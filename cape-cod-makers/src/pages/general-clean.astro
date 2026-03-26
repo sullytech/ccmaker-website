@@ -6,6 +6,7 @@ import { getCollection } from 'astro:content';
 const allEvents = await getCollection('events', ({ data }) =>
   data.tags.includes('general-clean') && !data.isCancelled && data.date >= new Date()
 );
+import { siteBase as base } from '../utils/siteBase';
 const nextClean = allEvents.sort((a, b) => a.data.date.getTime() - b.data.date.getTime())[0];
 ---
 
@@ -66,7 +67,7 @@ const nextClean = allEvents.sort((a, b) => a.data.date.getTime() - b.data.date.g
     </div>
 
     <div class="mt-10">
-      <a href="/events" class="text-ccm-blue hover:underline">← See All Events</a>
+      <a href={`${base}events`} class="text-ccm-blue hover:underline">← See All Events</a>
     </div>
   </div>
 </BaseLayout>

@@ -1,6 +1,7 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import ContactForm from '../components/ContactForm.astro';
+import { siteBase as base } from '../utils/siteBase';
 ---
 
 <BaseLayout
@@ -52,7 +53,7 @@ import ContactForm from '../components/ContactForm.astro';
           <h3 class="text-xl font-bold mb-3">Hours</h3>
           <!-- TODO: Add actual open hours from organizers -->
           <p class="text-gray-600">
-            Open hours vary. Check our <a href="/events" class="text-ccm-blue hover:underline">Events page</a>
+            Open hours vary. Check our <a href={`${base}events`} class="text-ccm-blue hover:underline">Events page</a>
             for upcoming open houses and drop-in times.
           </p>
           <p class="text-gray-600 mt-2">

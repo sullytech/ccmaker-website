@@ -3,6 +3,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import HeroSection from '../components/HeroSection.astro';
 import FacilityCard from '../components/FacilityCard.astro';
 
+import { siteBase as base } from '../utils/siteBase';
 // TODO: Replace with actual equipment list from Cape Cod Makers organizers
 const facilityAreas = [
   {
@@ -92,10 +93,10 @@ const facilityAreas = [
       Come to an open house and get a guided tour of all our equipment.
     </p>
     <div class="flex flex-col sm:flex-row gap-4 justify-center">
-      <a href="/events" class="bg-ccm-blue text-white font-semibold px-8 py-3 rounded-lg hover:bg-blue-700 transition-colors">
+      <a href={`${base}events`} class="bg-ccm-blue text-white font-semibold px-8 py-3 rounded-lg hover:bg-blue-700 transition-colors">
         Find an Open House
       </a>
-      <a href="/membership" class="border-2 border-ccm-blue text-ccm-blue font-semibold px-8 py-3 rounded-lg hover:bg-ccm-blue hover:text-white transition-colors">
+      <a href={`${base}membership`} class="border-2 border-ccm-blue text-ccm-blue font-semibold px-8 py-3 rounded-lg hover:bg-ccm-blue hover:text-white transition-colors">
         View Membership
       </a>
     </div>

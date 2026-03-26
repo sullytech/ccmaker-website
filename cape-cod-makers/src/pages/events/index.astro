@@ -3,6 +3,7 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import MeetupEventCard from '../../components/MeetupEventCard.astro';
 import { getMeetupEvents } from '../../utils/meetup';
 
+import { siteBase as base } from '../../utils/siteBase';
 const upcoming = await getMeetupEvents();
 ---
 
@@ -36,7 +37,7 @@ const upcoming = await getMeetupEvents();
         <div class="bg-gray-50 rounded-xl p-8 text-center">
           <p class="text-gray-500 mb-4">No upcoming events scheduled at this time.</p>
           <p class="text-gray-400 text-sm">
-            Check our <a href="https://www.meetup.com/cape-cod-makers/events/" target="_blank" rel="noopener noreferrer" class="text-ccm-blue hover:underline">Meetup page</a> or <a href="/contact" class="text-ccm-blue hover:underline">contact us</a> for more information.
+            Check our <a href="https://www.meetup.com/cape-cod-makers/events/" target="_blank" rel="noopener noreferrer" class="text-ccm-blue hover:underline">Meetup page</a> or <a href={`${base}contact`} class="text-ccm-blue hover:underline">contact us</a> for more information.
           </p>
         </div>
       )}

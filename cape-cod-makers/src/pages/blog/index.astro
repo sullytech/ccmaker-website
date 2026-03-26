@@ -4,6 +4,7 @@ import BlogPostCard from '../../components/BlogPostCard.astro';
 import { getCollection } from 'astro:content';
 
 const allPosts = await getCollection('blog', ({ data }) => !data.draft);
+import { siteBase as base } from '../../utils/siteBase';
 const posts = allPosts.sort((a, b) => b.data.pubDate.getTime() - a.data.pubDate.getTime());
 ---
 
@@ -18,7 +19,7 @@ const posts = allPosts.sort((a, b) => b.data.pubDate.getTime() - a.data.pubDate.
         <p class="text-gray-600">News and updates from Cape Cod Makers.</p>
       </div>
       <a
-        href="/rss.xml"
+        href={`${base}rss.xml`}
         class="text-ccm-blue text-sm flex items-center gap-1 hover:underline"
         title="RSS Feed"
       >

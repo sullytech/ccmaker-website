@@ -4,6 +4,7 @@ import HeroSection from '../components/HeroSection.astro';
 import MeetupEventCard from '../components/MeetupEventCard.astro';
 import { getMeetupEvents } from '../utils/meetup';
 
+import { siteBase as base } from '../utils/siteBase';
 const upcomingEvents = (await getMeetupEvents()).slice(0, 3);
 ---
 
@@ -15,9 +16,9 @@ const upcomingEvents = (await getMeetupEvents()).slice(0, 3);
     heading="Make Something Amazing"
     subtext="Cape Cod Makers is a community workshop at the tip of Cape Cod — open to all skill levels."
     ctaText="Explore Membership"
-    ctaHref="/membership"
+    ctaHref={`${base}membership`}
     secondaryCtaText="Upcoming Events"
-    secondaryCtaHref="/events"
+    secondaryCtaHref={`${base}events`}
   />
 
   <!-- Mission -->
@@ -63,7 +64,7 @@ const upcomingEvents = (await getMeetupEvents()).slice(0, 3);
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex items-center justify-between mb-8">
           <h2 class="text-3xl font-bold">Upcoming Events</h2>
-          <a href="/events" class="text-ccm-blue font-semibold hover:underline text-sm">
+          <a href={`${base}events`} class="text-ccm-blue font-semibold hover:underline text-sm">
             View all →
           </a>
         </div>
@@ -83,13 +84,13 @@ const upcomingEvents = (await getMeetupEvents()).slice(0, 3);
       </p>
       <div class="flex flex-col sm:flex-row gap-4 justify-center">
         <a
-          href="/membership"
+          href={`${base}membership`}
           class="bg-white text-ccm-blue font-semibold px-8 py-3 rounded-lg hover:bg-gray-100 transition-colors"
         >
           View Membership Options
         </a>
         <a
-          href="/contact"
+          href={`${base}contact`}
           class="border-2 border-white text-white font-semibold px-8 py-3 rounded-lg hover:bg-white hover:text-ccm-blue transition-colors"
         >
           Contact Us

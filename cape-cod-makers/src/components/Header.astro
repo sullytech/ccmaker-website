@@ -1,12 +1,13 @@
 ---
 import Nav from './Nav.astro';
+import { siteBase as base } from '../utils/siteBase';
 ---
 
 <header class="bg-white border-b border-gray-200 sticky top-0 z-50">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
     <div class="flex items-center justify-between h-16">
-      <a href="/" class="flex items-center shrink-0">
-        <img src="/ccmakers-logo.png" alt="Cape Cod Makers" class="h-10 w-auto" />
+      <a href={base} class="flex items-center shrink-0">
+        <img src={`${base}ccmakers-logo.png`} alt="Cape Cod Makers" class="h-10 w-auto" />
       </a>
       <Nav />
     </div>

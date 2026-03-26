@@ -11,6 +11,7 @@ export async function getStaticPaths() {
   }));
 }
 
+import { siteBase as base } from '../../utils/siteBase';
 const { event } = Astro.props;
 const { Content } = await render(event);
 const { title, date, endDate, location, description, registrationUrl, isCancelled } = event.data;
@@ -19,7 +20,7 @@ const { title, date, endDate, location, description, registrationUrl, isCancelle
 <BaseLayout title={title} description={description}>
   <article class="max-w-3xl mx-auto px-4 sm:px-6 py-12">
     <div class="mb-4">
-      <a href="/events" class="text-ccm-blue text-sm hover:underline">← Back to Events</a>
+      <a href={`${base}events`} class="text-ccm-blue text-sm hover:underline">← Back to Events</a>
     </div>
 
     <header class="mb-8">
@@ -63,7 +64,7 @@ const { title, date, endDate, location, description, registrationUrl, isCancelle
     </div>
 
     <div class="mt-8 pt-8 border-t border-gray-200">
-      <a href="/events" class="text-ccm-blue hover:underline">← Back to Events</a>
+      <a href={`${base}events`} class="text-ccm-blue hover:underline">← Back to Events</a>
     </div>
   </article>
 </BaseLayout>

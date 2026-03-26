@@ -11,6 +11,7 @@ export async function getStaticPaths() {
   }));
 }
 
+import { siteBase as base } from '../../utils/siteBase';
 const { post } = Astro.props;
 const { Content } = await render(post);
 const { title, pubDate, updatedDate, description, author, image, tags } = post.data;
@@ -19,7 +20,7 @@ const { title, pubDate, updatedDate, description, author, image, tags } = post.d
 <BaseLayout title={title} description={description} image={image}>
   <article class="max-w-3xl mx-auto px-4 sm:px-6 py-12">
     <div class="mb-4">
-      <a href="/blog" class="text-ccm-blue text-sm hover:underline">← Back to Blog</a>
+      <a href={`${base}blog`} class="text-ccm-blue text-sm hover:underline">← Back to Blog</a>
     </div>
 
     <header class="mb-8">
@@ -60,7 +61,7 @@ const { title, pubDate, updatedDate, description, author, image, tags } = post.d
     </div>
 
     <div class="mt-8 pt-8 border-t border-gray-200">
-      <a href="/blog" class="text-ccm-blue hover:underline">← Back to Blog</a>
+      <a href={`${base}blog`} class="text-ccm-blue hover:underline">← Back to Blog</a>
     </div>
   </article>
 </BaseLayout>
